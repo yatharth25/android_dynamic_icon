@@ -131,8 +131,7 @@ Check out the `example` app for more details
 
 
 ## Demo
-![Screenrecording of the example](https://user-images.githubusercontent.com/54071856/235359921-822bc474-abf9-406f-922a-97cea9ccaa0c.gif)
-
+<img src="https://user-images.githubusercontent.com/54071856/235359921-822bc474-abf9-406f-922a-97cea9ccaa0c.gif" width="25%" height="25%">
 
 ## Caution*
 
