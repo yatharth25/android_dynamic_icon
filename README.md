@@ -131,7 +131,7 @@ Check out the `example` app for more details
 
 
 ## Demo
-![Screenrecording of the example](https://user-images.githubusercontent.com/54071856/235355795-02ac0041-6ec5-4ea5-a6d3-6439c1c436c5.mp4)
+![Screenrecording of the example](https://user-images.githubusercontent.com/54071856/235359921-822bc474-abf9-406f-922a-97cea9ccaa0c.gif)
 
 
 ## Caution*
