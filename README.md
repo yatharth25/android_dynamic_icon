@@ -137,5 +137,5 @@ Check out the `example` app for more details
 ## Caution*
 
 * Using this feature on some android versions will cause your app to kill (it will crash the first time you change the icon, next time it won't).
-* You can use a dialog box before changing icon telling that app will restart after changing icon for better UX.
+* You can use a dialog box before changing app icon telling that app will restart after changing icon for better UX.
 
