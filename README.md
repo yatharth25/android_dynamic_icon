@@ -99,8 +99,8 @@ Check out the `example` directory for a sample app using `android_dynamic_icon`
         </activity-alias>
     </application>
 	```
- 
-
+	
+	
 ### Dart/Flutter Integration
 
 From your Dart code, you need to import the plugin and use it's static methods:
@@ -127,7 +127,7 @@ From your Dart code, you need to import the plugin and use it's static methods:
 Check out the `example` app for more details
 
 
-## Showing App Icon change
+## Demo
 ![Screenrecording of the example](https://raw.githubusercontent.com/tastelessjolt/flutter_dynamic_icon/master/imgs/screen.gif)
 
 
