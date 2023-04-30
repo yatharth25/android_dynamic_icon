@@ -131,7 +131,7 @@ Check out the `example` app for more details
 
 
 ## Demo
-![Screenrecording of the example](https://raw.githubusercontent.com/tastelessjolt/flutter_dynamic_icon/master/imgs/screen.gif)
+![Screenrecording of the example](https://user-images.githubusercontent.com/54071856/235355795-02ac0041-6ec5-4ea5-a6d3-6439c1c436c5.mp4)
 
 
 ## Caution*
