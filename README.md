@@ -66,8 +66,8 @@ Check out the `example` directory for a sample app using `android_dynamic_icon`
         <!-- <activity-alias used to change app icon dynamically>  : iconone icon, set enabled false initially -->
         <activity-alias
             android:label="app"
-            android:icon="@drawable/iconOne"
-            android:name=".MainActivityAliasiconOne"
+            android:icon="@drawable/iconone"
+            android:name=".MainActivityAliasiconone"
 	    android:enabled="false" <!--enabled must be false for non default icon of your app-->
             android:exported="true"
             android:targetActivity=".MainActivity"> <!--target activity class path will be same for all alias-->
@@ -78,8 +78,8 @@ Check out the `example` directory for a sample app using `android_dynamic_icon`
         </activity-alias>
         <activity-alias
             android:label="app"
-            android:icon="@drawable/iconTwo"
-            android:name=".MainActivityAliasiconTwo"
+            android:icon="@drawable/icontwo"
+            android:name=".MainActivityAliasicontwo"
 	    android:enabled="false" <!--enabled must be false for non default icon of your app-->
             android:exported="true"
             android:targetActivity=".MainActivity"> <!--target activity class path will be same for all alias-->
@@ -90,8 +90,8 @@ Check out the `example` directory for a sample app using `android_dynamic_icon`
         </activity-alias>
         <activity-alias
             android:label="app"
-            android:icon="@drawable/iconThree"
-            android:name=".MainActivityAliasiconThree"
+            android:icon="@drawable/iconthree"
+            android:name=".MainActivityAliasiconthree"
 	    android:enabled="false" <!--enabled must be false for non default icon of your app-->
             android:exported="true"
             android:targetActivity=".MainActivity"> <!--target activity class path will be same for all alias-->
@@ -116,15 +116,15 @@ From your Dart code, you need to import the plugin and use it's static methods:
     await _androidDynamicIconPlugin.changeIcon(
                 bundleId: "com.example.app",
                 isNewIcon: true,
-                iconName: "icon1Name",
-                iconNames: ["icon1Name", 'icon2Name'])
+                iconName: "icon1name",
+                iconNames: ["icon1name", 'icon2name'])
                 
     //To set default icon
     await _androidDynamicIconPlugin.changeIcon(
                 bundleId: "com.example.app",
                 isNewIcon: false,
                 iconName: "",
-                iconNames: ["icon1Name", 'icon2Name'])
+                iconNames: ["icon1name", 'icon2name'])
 ```
 
 Check out the `example` app for more details

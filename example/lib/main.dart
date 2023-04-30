@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
                 bundleId: "com.example.app",
                 isNewIcon: true,
                 iconName: "alternateIconName",
-                iconNames: ["icon1Name", 'icon2Name']);
+                iconNames: ["icon1name", 'icon2name']);
           },
           child: const Center(
             child: Text('Change Icon'),
