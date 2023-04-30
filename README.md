@@ -24,6 +24,7 @@ Check out the `example` directory for a sample app using `android_dynamic_icon`
     * Declare a list of string (your new alternative app icons)
 	* There is no need to add default icon in list of icons
 5. Update `android/src/main/AndroidManifest.xml` as follows:
+
 	```xml
 	<application...>
    
@@ -135,5 +136,3 @@ Check out the `example` app for more details
 * Using this feature on some android versions will cause your app to kill (it will crash the first time you change the icon, next time it won't).
 * You can use a dialog box before changing icon telling that app will restart after changing icon for better UX.
 
-
-# android_dynamic_icon
