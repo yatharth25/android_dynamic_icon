@@ -68,6 +68,7 @@ Check out the `example` directory for a sample app using `android_dynamic_icon`
             android:label="app"
             android:icon="@drawable/iconOne"
             android:name=".MainActivityAliasiconOne"
+	    android:enabled="false" <!--enabled must be false for non default icon of your app-->
             android:exported="true"
             android:targetActivity=".MainActivity"> <!--target activity class path will be same for all alias-->
             <intent-filter>
@@ -79,6 +80,7 @@ Check out the `example` directory for a sample app using `android_dynamic_icon`
             android:label="app"
             android:icon="@drawable/iconTwo"
             android:name=".MainActivityAliasiconTwo"
+	    android:enabled="false" <!--enabled must be false for non default icon of your app-->
             android:exported="true"
             android:targetActivity=".MainActivity"> <!--target activity class path will be same for all alias-->
             <intent-filter>
@@ -90,6 +92,7 @@ Check out the `example` directory for a sample app using `android_dynamic_icon`
             android:label="app"
             android:icon="@drawable/iconThree"
             android:name=".MainActivityAliasiconThree"
+	    android:enabled="false" <!--enabled must be false for non default icon of your app-->
             android:exported="true"
             android:targetActivity=".MainActivity"> <!--target activity class path will be same for all alias-->
             <intent-filter>
