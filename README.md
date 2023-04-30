@@ -33,7 +33,7 @@ Check out the `example` directory for a sample app using `android_dynamic_icon`
             android:exported="true"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
-            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+    	android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
             <meta-data
@@ -42,7 +42,7 @@ Check out the `example` directory for a sample app using `android_dynamic_icon`
               />
             <intent-filter>
 			
-				<!-- remove <action android:name="android.intent.action.MAIN"/> from here-->
+			<!-- remove <action android:name="android.intent.action.MAIN"/> from here-->
 				
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
