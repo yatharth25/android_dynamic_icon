@@ -109,14 +109,14 @@ From your Dart code, you need to import the plugin and use it's static methods:
     import 'package:android_dynamic_icon/android_dynamic_icon.dart';
 
     final _androidDynamicIconPlugin = AndroidDynamicIcon();
-    //To set New Icon
+    //To set new icon
     await _androidDynamicIconPlugin.changeIcon(
                 bundleId: "com.example.app",
                 isNewIcon: true,
                 iconName: "icon1Name",
                 iconNames: ["icon1Name", 'icon2Name'])
                 
-    //To set default Icon
+    //To set default icon
     await _androidDynamicIconPlugin.changeIcon(
                 bundleId: "com.example.app",
                 isNewIcon: false,
