@@ -24,11 +24,11 @@ abstract class AndroidDynamicIconPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<void> changeIcon(
-      {required String bundleId,
-      required bool isNewIcon,
-      required String iconName,
-      required List<String> iconNames}) {
-    throw UnimplementedError('platformVersion() has not been implemented.');
+  Future<void> initialize({required List<String> classNames}) async {
+    throw UnimplementedError('initialize() has not been implemented.');
+  }
+
+  Future<void> changeIcon({required List<String> classNames}) {
+    throw UnimplementedError('changeIcon() has not been implemented.');
   }
 }

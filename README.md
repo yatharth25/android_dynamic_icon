@@ -16,13 +16,8 @@ Check out the `example` directory for a sample app using `android_dynamic_icon`
 2. Run `flutter pub get`
 3. Add your all icons on `android/src/main/res/drawable` folder
 4. For having multiple app icon in your app you should note following:
-    * For each icon, you must declare an activity-alias in `AndroidManifest.xml` (see example below)
-    * All activity alias name must start with `MainActivityAlias`(for default icon) & `MainActivityAlias{iconName}`(iconName is name of icon)
-    * `android.intent.action.MAIN` should be removed from main activity
-    * The activity alias for default icon should be enabled true always and all others should be false
-    * The icon name you pass in the method must be in the `AndroidManifest.xml` as activity alias
-    * Declare a list of string (your new alternative app icons)
-	* There is no need to add default icon in list of icons
+    * For each icon, you must declare an activity-alias in `AndroidManifest.xml` (see example in point 5)
+    * For each icon you add, make a `ExampleIcon.kt` file below `MainActivity.kt` file (see example in point 6)
 5. Update `android/src/main/AndroidManifest.xml` as follows:
 
 	```xml
@@ -40,35 +35,18 @@ Check out the `example` directory for a sample app using `android_dynamic_icon`
               android:name="io.flutter.embedding.android.NormalTheme"
               android:resource="@style/NormalTheme"
               />
-            <intent-filter>
-			
-			<!-- remove <action android:name="android.intent.action.MAIN"/> from here-->
-				
-                <category android:name="android.intent.category.LAUNCHER"/>
+			<action android:name="android.intent.action.MAIN"/>
+		    <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 		
-		<!--name activity alias for your default icon and other icons you want to use-->
-		<!--Use .MainActivityAlias for default icon and .MainActivityAlias{iconName} for others-->
-		
-        <activity-alias
-            android:label="app"
-            android:icon="@mipmap/ic_launcher"
-            android:name=".MainActivityAlias"
-            android:enabled="true" <!--enabled must be true only for default icon of your app-->
-            android:exported="true"
-            android:targetActivity=".MainActivity"> <!--target activity class path will be same for all alias-->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity-alias>
-        <!-- <activity-alias used to change app icon dynamically>  : iconone icon, set enabled false initially -->
+		<!--name activity alias for icons you want to use-->
+	
         <activity-alias
             android:label="app"
             android:icon="@drawable/iconone"
-            android:name=".MainActivityAliasiconone"
-	    android:enabled="false" <!--enabled must be false for non default icon of your app-->
+            android:name=".IconOne"
+	        android:enabled="false"
             android:exported="true"
             android:targetActivity=".MainActivity"> <!--target activity class path will be same for all alias-->
             <intent-filter>
@@ -79,20 +57,8 @@ Check out the `example` directory for a sample app using `android_dynamic_icon`
         <activity-alias
             android:label="app"
             android:icon="@drawable/icontwo"
-            android:name=".MainActivityAliasicontwo"
-	    android:enabled="false" <!--enabled must be false for non default icon of your app-->
-            android:exported="true"
-            android:targetActivity=".MainActivity"> <!--target activity class path will be same for all alias-->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity-alias>
-        <activity-alias
-            android:label="app"
-            android:icon="@drawable/iconthree"
-            android:name=".MainActivityAliasiconthree"
-	    android:enabled="false" <!--enabled must be false for non default icon of your app-->
+            android:name=".IconTwo"
+	        android:enabled="false"
             android:exported="true"
             android:targetActivity=".MainActivity"> <!--target activity class path will be same for all alias-->
             <intent-filter>
@@ -102,29 +68,58 @@ Check out the `example` directory for a sample app using `android_dynamic_icon`
         </activity-alias>
     </application>
 	```
+6. Add `IconOne.kt` and `IconTwo.kt` below `MainActivity.kt` as follows:
+    ```kt
+    package com.example.android_dynamic_icon
+
+    import io.flutter.embedding.android.FlutterActivity
+
+    class IconOne: FlutterActivity() {
+    }
+    ```
+    ```kt
+    package com.example.android_dynamic_icon
+
+    import io.flutter.embedding.android.FlutterActivity
+
+    class IconTwo: FlutterActivity() {
+    }
+    ```
 	
 	
 ### Dart/Flutter Integration
 
-From your Dart code, you need to import the plugin and use it's static methods:
+From your Dart code, you need to import the plugin and use it's methods:
+
+1. First Initiliaze the plugin by all classes you made Including MainActivity as it is responsible for Default icon.
 
 ```dart 
     import 'package:android_dynamic_icon/android_dynamic_icon.dart';
 
     final _androidDynamicIconPlugin = AndroidDynamicIcon();
-    //To set new icon
-    await _androidDynamicIconPlugin.changeIcon(
-                bundleId: "com.example.app",
-                isNewIcon: true,
-                iconName: "icon1name",
-                iconNames: ["icon1name", 'icon2name'])
-                
-    //To set default icon
-    await _androidDynamicIconPlugin.changeIcon(
-                bundleId: "com.example.app",
-                isNewIcon: false,
-                iconName: "",
-                iconNames: ["icon1name", 'icon2name'])
+
+    @override
+    void initState() {
+        AndroidDynamicIcon.initialize(
+            classNames: ['MainActivity', 'IconOne', 'IconTwo']);
+        super.initState();
+    }
+```
+
+2. Now set different icons using change icon method.
+    
+```dart
+    //To set Icon One
+    await _androidDynamicIconPlugin
+            .changeIcon(classNames: ['IconOne', '']);
+
+    //To set Icon Two
+    await _androidDynamicIconPlugin
+            .changeIcon(classNames: ['IconOne', '']);
+
+    //To set Default Icon
+    await _androidDynamicIconPlugin
+            .changeIcon(classNames: ['MainActivity', '']);                
 ```
 
 Check out the `example` app for more details
@@ -132,9 +127,4 @@ Check out the `example` app for more details
 
 ## Demo
 <img src="https://user-images.githubusercontent.com/54071856/235359921-822bc474-abf9-406f-922a-97cea9ccaa0c.gif" width="25%" height="25%">
-
-## Caution*
-
-* Using this feature on some android versions will cause your app to kill (it will crash the first time you change the icon, next time it won't).
-* You can use a dialog box before changing app icon telling that app will restart after changing icon for better UX.
 
