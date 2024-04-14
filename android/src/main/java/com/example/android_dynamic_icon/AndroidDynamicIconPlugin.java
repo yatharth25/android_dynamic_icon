@@ -1,4 +1,4 @@
-package com.example.changeicon;
+package com.example.android_dynamic_icon;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.DefaultLifecycleObserver;
