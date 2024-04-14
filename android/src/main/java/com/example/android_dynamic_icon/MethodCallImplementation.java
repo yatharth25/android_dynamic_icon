@@ -9,6 +9,8 @@ import android.content.ComponentName;
 import android.content.pm.PackageManager;
 import android.os.Parcelable;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
@@ -25,7 +27,7 @@ public class MethodCallImplementation implements MethodCallHandler {
   private MethodChannel channel;
   private Context context;
   private Activity activity;
-  private static final String TAG = AndDynamicIconPlugin.getTAG();
+  private static final String TAG = AndroidDynamicIconPlugin.getTAG();
 
   private static List<String> classNames = null;
   private static boolean iconChanged = false;
